@@ -1,0 +1,5 @@
+https://learn.adafruit.com/setting-up-io-python-library-on-beaglebone-black
+
+
+for kernel over 4.x debian beaglebone bone black use dtc for pin assignment
+https://billwaa.wordpress.com/2014/10/13/beaglebone-black-enable-all-uart-ports-at-boot/

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<ProfilingTarget xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <ProjectTarget>
+    <TargetProject>bdde4a67-e5d0-4166-8c1b-d9cfe6624b43</TargetProject>
+    <FriendlyName>Radiation Detector</FriendlyName>
+  </ProjectTarget>
+  <Reports>
+    <Report>
+      <Filename>C:\Users\RedEye\AppData\Local\Temp\Radiation Detector_20180118.vsp</Filename>
+    </Report>
+  </Reports>
+</ProfilingTarget>
