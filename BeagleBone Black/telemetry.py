@@ -4,10 +4,17 @@
 # UART     RX     TX     CTS     RTS     Device
 # UART1 P9_26     P9_24     P9_20     P9_19     /dev/ttyO1
 # https://learn.adafruit.com/setting-up-io-python-library-on-beaglebone-black/uart
-# requir dtc
+# require dtc
+#
+#   Connections :   5V -> P9_7 (sys 5V)
+#                   RX -> P9_26 (UART1_RXD)
+#                   TX -> P9_24 (UART1_TXD)
+#                   GND -> P9_45 DGND
+#   Adafruit_BBIO library may be not necessary for UART serial communication
+#
 
 import serial
-import Adafruit_BBIO.UART as UART
+#import Adafruit_BBIO.UART as UART
 import json
 import logging
 import time
@@ -20,9 +27,9 @@ class Telemetry(object) :
         logging.basicConfig(level=logging.DEBUG, format='%(asctime)s [%(levelname)s] %(message)s', datefmt='[%d/%m/%y - %H:%M:%S]')
         self.logger = logging.getLogger(__name__)
 
-        self.logger.debug("Opening UART1...")
-        UART.setup("UART1")
-        self.logger.debug("UART1 is open")
+        #self.logger.debug("Opening UART1...")
+        #UART.setup("UART1")
+        #self.logger.debug("UART1 is open")
 
         self.logger.debug("Openning serial ttyO1 at 57600 bps, see documentation")
         self.telemetrySerial = serial.Serial(port = "/dev/ttyO1", baudrate=57600)
