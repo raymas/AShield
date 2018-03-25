@@ -1,6 +1,6 @@
 # AShield Project
 
-Computer vision and BeagleBone Black kernel.
+Computer vision and some BeagleBone Black kernel.
 
 ## Getting Started
 
@@ -20,8 +20,10 @@ Command for installing all dependencies :
 sudo apt-get install python-opencv
 sudo apt-get install python-pip
 pip install numpy
-pip install serial
+pip install pyserial
 ```
+
+Keep in mind that ```python-opencv``` is a wrapper it is better to compile it.
 
 ### Installing
 
@@ -30,13 +32,9 @@ Clone the repository
 git clone https://github.com/raymas/AShield
 ```
 
-## Built With
-
 ## Contributing
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
+Please read [CONTRIBUTING.md]() for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## Authors
 
