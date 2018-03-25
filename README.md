@@ -8,9 +8,9 @@ Computer vision and BeagleBone Black kernel.
 ### Prerequisites
 
 Required libraries :
-    - OpenCV 3.4.0+
-    - Numpy 1.14.2+
-    - pyserial
+* **OpenCV 3.4.0**+
+* **Numpy 1.14.2**+
+* **pyserial 3.4**+
 
 Command for installing all dependencies :
 
@@ -46,4 +46,4 @@ See also the list of [contributors](https://github.com/raymas/AShield/contributo
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the GNU 3.0 License - see the [LICENSE.md](LICENSE.md) file for details
