@@ -96,7 +96,7 @@ class Radiation :
                 self.logger.debug(frame)
                 if self.inputQueue.empty() :
                     self.inputQueue.put(frame)
-                    
+
                 thread = threading.Thread(target=self.computeRadiationLevel, args=(self.inputQueue, ))
                 thread.deamon = True
                 thread.start()
@@ -130,14 +130,14 @@ class Radiation :
 
         if frame_1.shape > 2 :
             frame_1 = cv2.cvtColor(frame_1, cv2.COLOR_BGR2GRAY)
-        # must find an other way to perform this shit
+        # TODO: must find an other way to perform this shit
         #
         # INPUTQUEUE -> cv2.range() -> bitwise_xor() -> cv2.nonZero() -> OUTPUTQUEUE !
         #
-        # 1. Correct the frame with a Range or brightnest ? 
+        # 1. Correct the frame with a Range or brightnest ?
         # 2. bitwise_xor between the calibrated image and captured one
         # 3. non-zero function applies to the single row matrix
-        #
+        # Use a tensor flow ?
 
         # Comparing the two arrays for differences
 
