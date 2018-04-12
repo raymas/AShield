@@ -134,7 +134,7 @@ class Radiation :
         #
         # INPUTQUEUE -> cv2.range() -> bitwise_xor() -> cv2.nonZero() -> OUTPUTQUEUE !
         #
-        # 1. Correct the frame with a Range or brightnest ?
+        # 1. Correct the frame with a Range or brightnest and HSV (https://stackoverflow.com/questions/10948589/choosing-the-correct-upper-and-lower-hsv-boundaries-for-color-detection-withcv) ?
         # 2. bitwise_xor between the calibrated image and captured one
         # 3. non-zero function applies to the single row matrix
         # Use a tensor flow ?
