@@ -29,7 +29,7 @@ Keep in mind that ```python-opencv``` is a wrapper it is better to compile it.
 
 Clone the repository
 ```
-git clone https://github.com/raymas/AShield
+git clone https://github.com/raymas/AShield.git
 ```
 
 ## Contributing
