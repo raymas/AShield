@@ -55,6 +55,7 @@ class Radiation :
             ret, frame = self.stream.read()
             if ret :
                 frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+             
                 self.logger.debug("Calibration done with radiation !")
                 return 0
             else :
@@ -118,9 +119,10 @@ class Radiation :
 
     #
     #   Computing radiation level
-    #
     def computeRadiationLevel(self, inQueue) :
         frame_1 = inQueue.get()
+        #if frame_1>= [36].[36]:
+            #frame_1=[0].[0]:
         frame_2 = self.lastFrame
 
         if frame_2 is None :
@@ -132,19 +134,24 @@ class Radiation :
             frame_1 = cv2.cvtColor(frame_1, cv2.COLOR_BGR2GRAY)
         # TODO: must find an other way to perform this shit
         #
-        # INPUTQUEUE -> cv2.range() -> bitwise_xor() -> cv2.nonZero() -> OUTPUTQUEUE !
+        # INPUTQUEUE -> cv2.inRange() -> bitwise_xor() -> cv2.nonZero() -> OUTPUTQUEUE !
         #
         # 1. Correct the frame with a Range or brightnest and HSV (https://stackoverflow.com/questions/10948589/choosing-the-correct-upper-and-lower-hsv-boundaries-for-color-detection-withcv) ?
         # 2. bitwise_xor between the calibrated image and captured one
         # 3. non-zero function applies to the single row matrix
         # Use a tensor flow ?
 
+        lower = numpy.array([180])
+        upper = numpy.array([255])
+
+        frame_1 = cv2.inRange(frame_1, lower, upper)
+        res = cv2.bitwise_xor(frame_1, self.baseMask)
+        nonZero = cv2.countNonZero(res)
+
         # Comparing the two arrays for differences
 
         #self.logger.debug(frame_1)
-        nonZero = cv2.countNonZero(frame_1)
-        mseResult = self.mse(frame_1, frame_2)
-        self.outputQueue.put(mseResult)
+        self.outputQueue.put(nonZero)
         return 0
 
     #
@@ -201,5 +208,6 @@ class Radiation :
 
 if __name__ == '__main__' :
     r = Radiation()
-    r.openVideo("beam.mp4")
+    r.openStream()
+    r.calibrateWithoutRadiation()
     r.process()

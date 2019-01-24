@@ -1,3 +1,8 @@
+<p align="center">
+  <a href="https://www.facebook.com/Projet-Ashield-1590097147748580/">
+    <img alt="Ashield" src="ashield.jpg"/>
+  </a>
+</p>
 # AShield Project
 
 Computer vision and some BeagleBone Black kernel.
